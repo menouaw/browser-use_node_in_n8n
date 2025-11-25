@@ -68,7 +68,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Test the Browser Use Bridge API")
     parser.add_argument("--url", default="http://localhost:8000/api/v1", help="Base URL for the API")
     parser.add_argument("--task", default="Go to google.com and search for 'n8n automation'", help="Task to perform")
-    parser.add_argument("--provider", default="openai", choices=["openai", "anthropic", "mistral", "google", "ollama", "azure"], help="AI provider to use")
+    parser.add_argument("--provider", default="azure", choices=["openai", "anthropic", "mistral", "google", "ollama", "azure"], help="AI provider to use")
     parser.add_argument("--headful", action="store_true", help="Run the browser in headful mode")
     args = parser.parse_args()
     sys.exit(test_api(args.url, args.task, args.provider, args.headful)) 

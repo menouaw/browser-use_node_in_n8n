@@ -96,7 +96,7 @@ tasks: Dict[str, Dict] = {}
 # Models
 class TaskRequest(BaseModel):
     task: str
-    ai_provider: Optional[str] = "openai"  # Default to OpenAI
+    ai_provider: Optional[str] = "azure"  # Default to OpenAI
     save_browser_data: Optional[bool] = False  # Whether to save browser cookies
     headful: Optional[bool] = None  # Override BROWSER_USE_HEADFUL setting
     use_custom_chrome: Optional[bool] = None  # Whether to use custom Chrome from env vars
