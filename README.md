@@ -139,6 +139,11 @@ You can configure the service by editing the `.env` file.  Available options are
 - **ImportError with browser-use**: Make sure you have installed the browser-use package and its dependencies correctly.
 - **API Key Issues**: Verify that your API keys are correctly set in the `.env` file.
 - **Port Conflicts**: If port 8000 is already in use, set a different port in the `.env` file.
+- **Missing native modules on Windows / Python 3.13**: Packages such as `zstandard`, `grpcio`, `regex`, `tiktoken`, `greenlet`, and `jiter` ship compiled extensions that may not be pulled automatically by older versions of `pip`.  
+  1. Upgrade your tooling first: `python -m pip install --upgrade pip setuptools wheel`.  
+  2. Re-install the native dependencies from wheels:  
+     `python -m pip install --force-reinstall --only-binary=:all: zstandard==0.23.0 grpcio==1.76.0 regex==2025.11.3 tiktoken==0.12.0 greenlet==3.2.4 jiter==0.12.0`.  
+  These packages are now pinned in `requirements.txt`, so a fresh `pip install -r requirements.txt` on an up-to-date pip should succeed without extra steps.
 
 ## License
 
